@@ -16,12 +16,13 @@ public class WebConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173", 
-            "http://localhost:5174", 
-            "http://localhost:5175", 
+            "http://localhost:5173",
+            "http://localhost:5174",
+            "http://localhost:5175",
             "http://localhost:3000",
+            "https://gtit.netlify.app",
             "https://gtit.com"
-        )); // Frontend URLs including potential different ports in development
+        )); // Frontend URLs including development and production domains
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization", "X-Requested-With"));
         corsConfiguration.setExposedHeaders(List.of("Content-Disposition"));
