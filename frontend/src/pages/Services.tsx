@@ -76,7 +76,7 @@ const Services = () => {
       description: 'Websites empresariais, comércio eletrónico e plataformas rápidas e escaláveis para aumentar a sua presença online.',
       link: '/services/web-development',
       button: 'Explorar Websites',
-      image: '/src/assets/images/DesenvWeb.jpg',
+  image: '/assets/images/DesenvWeb.jpg',
       features: ['Websites Corporativos', 'E-commerce', 'Plataformas Digitais', 'SEO']
     },
     {
