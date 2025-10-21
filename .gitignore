@@ -1,0 +1,32 @@
+# Root gitignore
+# Node / Vite
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+**/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Env files (keep local only)
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+backend/target/
+**/target/
+
+# Netlify local state
+.netlify/

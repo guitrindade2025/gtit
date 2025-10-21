@@ -1,0 +1,30 @@
+[
+  {
+    "id": "service1",
+    "title": "IT Consulting",
+    "description": "Strategic IT consulting services to help your business leverage technology for growth and innovation.",
+    "icon": "chart-line",
+    "image": "/assets/images/service1.jpg"
+  },
+  {
+    "id": "service2",
+    "title": "Software Development",
+    "description": "Custom software development tailored to your unique business needs and challenges.",
+    "icon": "code",
+    "image": "/assets/images/service2.jpg"
+  },
+  {
+    "id": "service3",
+    "title": "Cloud Solutions",
+    "description": "Secure and scalable cloud infrastructure and migration services for modern businesses.",
+    "icon": "cloud",
+    "image": "/assets/images/service3.jpg"
+  },
+  {
+    "id": "service4",
+    "title": "Cybersecurity",
+    "description": "Comprehensive security solutions to protect your digital assets and infrastructure.",
+    "icon": "shield-check",
+    "image": "/assets/images/service4.jpg"
+  }
+]

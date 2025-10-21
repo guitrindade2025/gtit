@@ -1,0 +1,37 @@
+.page-content {
+  /* This padding-top should match the header height to prevent content overlap */
+  padding-top: 6rem; /* Adjust this value as needed based on your header height */
+}
+
+/* Add additional padding when header is scrolled and becomes smaller */
+.scrolled-layout .page-content {
+  padding-top: 4.5rem; /* Smaller padding for when header is scrolled */
+}
+
+/* Ensure demo pages have proper spacing from the header */
+.demo-page {
+  padding-top: 5rem; /* Additional padding specifically for demo pages */
+  margin-top: 2rem; /* Extra margin to push content down more */
+}
+
+/* For body with demo pages */
+body.has-demo-page {
+  padding-top: 4rem;
+}
+
+/* Prevent page content from hiding behind the header */
+h1, h2, h3, .section-title {
+  scroll-margin-top: 6rem; /* Ensures headings are visible when scrolled to */
+}
+
+/* Fixed position elements should have additional top margin */
+.demo-page .container {
+  margin-top: 3rem !important;
+}
+.demo-page {
+  padding-top: 6rem; /* Match the header height */
+}
+
+.scrolled-layout .demo-page {
+  padding-top: 4.5rem; /* Match the scrolled header height */
+}

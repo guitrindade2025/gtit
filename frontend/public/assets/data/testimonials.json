@@ -1,0 +1,26 @@
+[
+  {
+    "id": "testimonial1",
+    "content": "GTIT provided exceptional IT consulting services that transformed our business operations. Their team's expertise and professionalism exceeded our expectations.",
+    "author": "Roberto Almeida",
+    "company": "Tech Innovations",
+    "rating": 5,
+    "image": "/assets/images/client1.jpg"
+  },
+  {
+    "id": "testimonial2",
+    "content": "Working with GTIT on our cloud migration was a seamless experience. Their attention to detail and commitment to security gave us complete confidence throughout the process.",
+    "author": "Carla Pereira",
+    "company": "Global Solutions",
+    "rating": 5,
+    "image": "/assets/images/client2.jpg"
+  },
+  {
+    "id": "testimonial3",
+    "content": "The custom software developed by GTIT has significantly improved our productivity and customer satisfaction. Their team was responsive and delivered on time and within budget.",
+    "author": "Miguel Ferreira",
+    "company": "DataFlow Systems",
+    "rating": 4.5,
+    "image": "/assets/images/client3.jpg"
+  }
+]

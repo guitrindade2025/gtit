@@ -1,0 +1,568 @@
+:root {
+  --imob-primary: #F59E0B;
+  --imob-primary-dark: #D97706;
+  --imob-primary-light: #FCD34D;
+  --imob-accent: #059669;
+  --imob-text-primary: #1E293B;
+  --imob-text-secondary: #64748B;
+  --imob-bg-light: #F8FAFC;
+  --imob-bg-white: #FFFFFF;
+  --imob-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.imobiliaria-theme {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* Custom real estate cursor */
+.imobiliaria-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.9) 0%,
+    rgba(245, 158, 11, 0.7) 40%,
+    rgba(245, 158, 11, 0.3) 80%,
+    rgba(245, 158, 11, 0) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 
+    0 0 10px rgba(245, 158, 11, 0.6),
+    0 0 20px rgba(245, 158, 11, 0.3);
+  will-change: transform;
+}
+
+.imobiliaria-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.imobiliaria-cursor.cursor-hover {
+  width: 50px !important;
+  height: 50px !important;
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 1) 0%,
+    rgba(245, 158, 11, 0.8) 40%,
+    rgba(245, 158, 11, 0.4) 80%,
+    rgba(245, 158, 11, 0) 100%
+  );
+  box-shadow: 
+    0 0 15px rgba(245, 158, 11, 0.8),
+    0 0 30px rgba(245, 158, 11, 0.4);
+}
+
+.imobiliaria-demo {
+  min-height: 100vh;
+  background-color: var(--imob-bg-light);
+  position: relative;
+}
+
+.imobiliaria-demo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F59E0B' fill-opacity='0.04'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 60c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm60-60c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.imobiliaria-nav {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--imob-shadow);
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.imobiliaria-nav.scrolled {
+  padding: 0.5rem 0;
+}
+
+.imobiliaria-nav-link {
+  position: relative;
+  transition: all 0.3s;
+  font-weight: 500;
+  color: var(--imob-text-secondary);
+  padding-bottom: 0.25rem;
+}
+
+.imobiliaria-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #F59E0B;
+  transition: width 0.3s;
+}
+
+.imobiliaria-nav-link:hover::after {
+  width: 100%;
+}
+
+.imobiliaria-hero {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+}
+
+.imobiliaria-card {
+  transition: all 0.3s;
+}
+
+.imobiliaria-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.property-image {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.property-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.property-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.property-card:hover .property-image::after {
+  opacity: 1;
+}
+
+.property-card:hover .property-image img {
+  transform: scale(1.1) rotate(1deg);
+}
+
+.property-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  background: rgba(245, 158, 11, 0.9);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+  backdrop-filter: blur(4px);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.property-card:hover .property-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.property-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--imob-text-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  backdrop-filter: blur(4px);
+  border-left: 3px solid var(--imob-accent);
+}
+
+.property-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.property-features::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 30%;
+  height: 1px;
+  background-color: var(--imob-primary);
+  transition: width 0.4s ease;
+}
+
+.property-card:hover .property-features::before {
+  width: 100%;
+}
+
+.property-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--imob-text-secondary);
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.property-card:hover .property-feature {
+  color: var(--imob-text-primary);
+}
+
+.property-feature-icon {
+  color: var(--imob-primary);
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover .property-feature-icon {
+  transform: scale(1.2);
+}
+
+.search-filters {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--imob-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+.search-filters:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.search-input {
+  transition: all 0.3s;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.search-input:focus {
+  border-color: var(--imob-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  background: white;
+}
+
+.search-btn {
+  background: linear-gradient(90deg, var(--imob-primary) 0%, var(--imob-primary-dark) 100%);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.7s;
+  z-index: 2;
+}
+
+.search-btn:hover::before {
+  left: 100%;
+}
+
+.search-btn:hover {
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Animated 3D property card */
+.property-card-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.property-card-3d-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.property-card-3d:hover .property-card-3d-inner {
+  transform: rotateY(10deg);
+}
+
+/* Price tag with animation */
+.property-price-tag {
+  position: relative;
+  display: inline-block;
+  background: var(--imob-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.property-price-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-100%);
+}
+
+.property-card:hover .property-price-tag::before {
+  animation: price-shine 1.5s infinite;
+}
+
+@keyframes price-shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Property location marker */
+.property-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--imob-text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.location-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: var(--imob-accent);
+  border-radius: 50%;
+}
+
+.location-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--imob-accent);
+  opacity: 0.3;
+  animation: location-pulse 2s infinite;
+}
+
+@keyframes location-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Property gallery slider dots */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.gallery-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background-color: var(--imob-primary);
+}
+
+/* Virtual tour button */
+.virtual-tour-btn {
+  position: relative;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 2rem;
+  font-weight: 500;
+  color: var(--imob-text-primary);
+  transition: all 0.3s ease;
+}
+
+.virtual-tour-btn::before {
+  content: '360°';
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--imob-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.virtual-tour-btn:hover {
+  background-color: var(--imob-primary);
+  color: white;
+}
+
+.virtual-tour-btn:hover::before {
+  background-color: white;
+  color: var(--imob-primary);
+}
+
+/* Comparison slider */
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.comparison-before,
+.comparison-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.comparison-before {
+  z-index: 1;
+  width: 50%;
+}
+
+.comparison-divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+  z-index: 3;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+}
+
+.comparison-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-divider::after {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--imob-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Floating action button */
+.floating-action-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--imob-primary), var(--imob-primary-dark));
+  color: white;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 100;
+}
+
+.floating-action-button:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 6px 30px rgba(245, 158, 11, 0.6);
+}

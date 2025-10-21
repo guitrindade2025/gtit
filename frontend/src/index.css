@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+:root {
+  --color-primary: #0066CC;
+  --color-secondary: #1E293B;
+  --color-accent: #38BDF8;
+  --color-light: #F8FAFC;
+  --color-dark: #0F172A;
+}
+
+/* Global text selection prevention */
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Prevent text selection globally for all elements by default */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Special emphasis for headers */
+h1, h2, h3, h4, h5, h6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Allow text selection ONLY for content areas that explicitly need it */
+.selectable-text,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Force no native cursor on package titles (specific fix) */
+#pacotes h2,
+#pacotes h3,
+#pacotes .card-title {
+  cursor: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  letter-spacing: -0.025em;
+}
+
+/* Will add Tailwind classes here once configured properly */
+
+/* Utility classes */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 102, 204, 0.9);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(30, 41, 59, 0.9);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

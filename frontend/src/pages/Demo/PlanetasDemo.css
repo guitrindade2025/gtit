@@ -1,0 +1,598 @@
+body.planetas-demo {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+.stars-container div {
+  animation: twinkle 5s infinite alternate;
+}
+
+/* Moon Cursor with Shooting Star Trail */
+.custom-cursor {
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle, 
+    rgba(255, 255, 255, 0.95) 30%,
+    rgba(240, 240, 250, 0.9) 40%,
+    rgba(220, 225, 250, 0.8) 60%,
+    rgba(200, 205, 250, 0.6) 80%,
+    rgba(180, 185, 220, 0.4) 100%
+  );
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.7), 
+    0 0 20px rgba(200, 220, 255, 0.5), 
+    0 0 30px rgba(170, 200, 255, 0.3),
+    0 0 50px rgba(140, 180, 255, 0.2);
+  filter: brightness(1.2) contrast(1.1);
+  will-change: transform;
+}
+
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 65% 35%, 
+    rgba(255, 255, 255, 0.2) 5%,
+    rgba(210, 220, 250, 0.15) 20%, 
+    rgba(180, 195, 230, 0.1) 50%,
+    rgba(150, 170, 210, 0.05) 80%,
+    rgba(100, 130, 190, 0) 100%
+  );
+  z-index: -1;
+  filter: blur(4px);
+  animation: moon-glow 3s infinite alternate;
+}
+
+.cursor-trail {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(220, 240, 255, 0.8) 10%, 
+    rgba(180, 210, 255, 0.6) 30%, 
+    rgba(150, 190, 255, 0.4) 60%,
+    rgba(110, 160, 255, 0.1) 90%
+  );
+  pointer-events: none;
+  z-index: 49;
+  opacity: 0.8;
+  filter: blur(3px) brightness(1.2);
+  will-change: transform, opacity;
+}
+
+.cursor-hover {
+  width: 45px !important;
+  height: 45px !important;
+  filter: brightness(1.6) contrast(1.6) blur(2px);
+}
+
+@keyframes moon-glow {
+  0% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1) rotate(180deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(360deg);
+  }
+}
+
+.planet {
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Enhanced Mercury */
+.planet-mercury {
+  background: linear-gradient(135deg, 
+    #e6e6e6 0%, 
+    #bfbfbf 20%, 
+    #8c8c8c 40%, 
+    #595959 60%, 
+    #404040 80%, 
+    #262626 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.2),
+    inset 3px 3px 5px rgba(255, 255, 255, 0.2),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.planet-mercury::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="30" r="3" fill="rgba(100,100,100,0.4)"/><circle cx="60" cy="70" r="5" fill="rgba(80,80,80,0.5)"/><circle cx="80" cy="20" r="4" fill="rgba(90,90,90,0.5)"/></svg>');
+  opacity: 0.5;
+  animation: rotate 80s linear infinite;
+}
+
+/* Enhanced Venus */
+.planet-venus {
+  background: radial-gradient(circle at 30% 30%, 
+    #f7e3aa 5%, 
+    #e9cb6e 25%,
+    #d4ad4e 45%, 
+    #c28d3d 65%, 
+    #a06a1f 85%,
+    #7a4a07 100%
+  );
+  box-shadow: 
+    0 0 30px rgba(233, 184, 110, 0.5),
+    inset 5px 5px 10px rgba(255, 240, 200, 0.5),
+    inset -5px -5px 10px rgba(100, 70, 0, 0.6);
+}
+
+.planet-venus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M30,50 Q60,20 100,30 T170,50 T180,100 T150,150 T90,180 T30,140 T20,80 T30,50" fill="none" stroke="rgba(220,180,140,0.3)" stroke-width="5"/><path d="M40,60 Q70,30 110,40 T160,60 T170,100 T140,140 T80,170 T40,130 T30,80 T40,60" fill="none" stroke="rgba(200,160,120,0.4)" stroke-width="4"/></svg>');
+  opacity: 0.6;
+  animation: rotate 100s linear infinite;
+}
+
+/* Enhanced Earth */
+.planet-earth {
+  background: radial-gradient(circle at 30% 30%, 
+    #b3d9ff 5%, 
+    #6ba4e5 25%, 
+    #4080c0 45%, 
+    #20589d 65%, 
+    #0a3056 85%, 
+    #001830 100%
+  );
+  box-shadow: 
+    0 0 40px rgba(106, 147, 214, 0.6),
+    inset 5px 5px 10px rgba(180, 220, 255, 0.5),
+    inset -5px -5px 10px rgba(0, 30, 60, 0.8);
+}
+
+.planet-earth::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,70 Q90,50 130,80 T170,130 T120,170 T60,150 T40,90 T40,70" fill="none" stroke="rgba(76,175,80,0.7)" stroke-width="10"/><circle cx="150" cy="60" r="15" fill="rgba(245,245,245,0.7)"/><circle cx="50" cy="150" r="20" fill="rgba(245,245,245,0.7)"/></svg>');
+  opacity: 0.7;
+  animation: rotate 120s linear infinite;
+}
+
+.planet-earth::after {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, transparent 50%, rgba(255, 255, 255, 0.1) 51%, transparent 100%);
+  animation: atmosphere 12s linear infinite;
+  opacity: 0.5;
+}
+
+/* Enhanced Mars */
+.planet-mars {
+  background: radial-gradient(circle at 30% 30%, 
+    #ffc9b3 5%, 
+    #e67e5a 25%, 
+    #c25a3a 45%, 
+    #9c3e21 65%, 
+    #6a2a17 85%,
+    #3d1a0f 100%
+  );
+  box-shadow: 
+    0 0 30px rgba(230, 126, 90, 0.5),
+    inset 4px 4px 8px rgba(255, 200, 180, 0.4),
+    inset -4px -4px 8px rgba(60, 20, 10, 0.7);
+}
+
+.planet-mars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><circle cx="30" cy="40" r="10" fill="rgba(140,30,10,0.6)"/><circle cx="100" cy="30" r="15" fill="rgba(150,40,15,0.5)"/><circle cx="80" cy="110" r="20" fill="rgba(120,20,10,0.7)"/><circle cx="140" cy="70" r="8" fill="rgba(180,90,60,0.6)"/></svg>');
+  opacity: 0.7;
+  animation: rotate 90s linear infinite;
+}
+
+/* Enhanced Jupiter */
+.planet-jupiter {
+  background: radial-gradient(circle at 30% 30%, 
+    #ffe0b3 5%, 
+    #ffcc80 15%, 
+    #e6a848 30%, 
+    #cc8822 50%, 
+    #996611 70%,
+    #664400 90%
+  );
+  box-shadow: 
+    0 0 50px rgba(234, 195, 154, 0.6),
+    inset 8px 8px 16px rgba(255, 240, 220, 0.4),
+    inset -8px -8px 16px rgba(70, 50, 30, 0.7);
+}
+
+.planet-jupiter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    170deg,
+    transparent 0%,
+    rgba(255, 200, 150, 0.15) 5%,
+    rgba(210, 170, 130, 0.15) 10%,
+    rgba(180, 140, 100, 0.15) 15%,
+    rgba(255, 200, 150, 0.15) 20%,
+    rgba(210, 170, 130, 0.15) 25%
+  );
+  animation: rotate 50s linear infinite;
+}
+
+.planet-jupiter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><ellipse cx="150" cy="100" rx="80" ry="30" fill="rgba(180,70,20,0.5)"/><ellipse cx="150" cy="200" rx="70" ry="25" fill="rgba(190,110,40,0.6)"/><ellipse cx="150" cy="150" rx="90" ry="20" fill="rgba(200,140,60,0.4)"/></svg>');
+  opacity: 0.7;
+  animation: rotate 60s linear infinite reverse;
+}
+
+/* Enhanced Saturn */
+.planet-saturn {
+  background: radial-gradient(circle at 30% 30%, 
+    #fff2d6 5%, 
+    #f0dcb4 25%, 
+    #e0c696 45%, 
+    #c0a678 65%, 
+    #a08c60 85%,
+    #80704c 100%
+  );
+  box-shadow: 
+    0 0 40px rgba(240, 226, 200, 0.5),
+    inset 6px 6px 12px rgba(255, 245, 230, 0.4),
+    inset -6px -6px 12px rgba(80, 70, 50, 0.7);
+}
+
+.planet-saturn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0%,
+    rgba(225, 215, 180, 0.1) 10%,
+    transparent 20%
+  );
+  animation: rotate 70s linear infinite;
+}
+
+/* Enhanced Saturn ring */
+.saturn-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  width: 220%;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, 
+    rgba(240, 226, 200, 0) 0%,
+    rgba(240, 226, 200, 0.2) 10%,
+    rgba(240, 226, 200, 0.5) 20%,
+    rgba(240, 226, 200, 0.8) 30%,
+    rgba(240, 226, 200, 0.9) 50%,
+    rgba(240, 226, 200, 0.8) 70%,
+    rgba(240, 226, 200, 0.5) 80%,
+    rgba(240, 226, 200, 0.2) 90%,
+    rgba(240, 226, 200, 0) 100%
+  );
+  box-shadow: 0 0 20px rgba(240, 226, 200, 0.4);
+  z-index: -1;
+}
+
+.saturn-ring::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  bottom: 25%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, 
+    rgba(180, 160, 140, 0) 0%,
+    rgba(180, 160, 140, 0.4) 30%,
+    rgba(180, 160, 140, 0.7) 50%,
+    rgba(180, 160, 140, 0.4) 70%,
+    rgba(180, 160, 140, 0) 100%
+  );
+}
+
+/* Neptune */
+.planet-neptune {
+  background: radial-gradient(circle at 30% 30%, 
+    #99ccff 5%, 
+    #66a3e0 25%, 
+    #4080c0 45%, 
+    #2d5c8c 65%, 
+    #1a3d59 85%,
+    #0d1f2d 100%
+  );
+  box-shadow: 
+    0 0 45px rgba(102, 163, 224, 0.7),
+    inset 5px 5px 15px rgba(180, 220, 255, 0.5),
+    inset -5px -5px 15px rgba(10, 30, 50, 0.8);
+}
+
+.planet-neptune::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M50,100 Q75,70 100,90 T140,70 T180,90 T160,140 T100,160 T60,130 T50,100" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="8"/><path d="M40,80 Q65,50 100,70 T150,50 T190,80 T170,140 T110,170 T50,140 T40,80" fill="none" stroke="rgba(180,220,255,0.3)" stroke-width="6"/></svg>');
+  opacity: 0.6;
+  animation: rotate 110s linear infinite;
+}
+
+/* Uranus */
+.planet-uranus {
+  background: radial-gradient(circle at 30% 30%, 
+    #ccf2ff 5%, 
+    #99e6ff 25%, 
+    #66d9ff 45%, 
+    #33ccff 65%, 
+    #00bfff 85%,
+    #0099cc 100%
+  );
+  box-shadow: 
+    0 0 40px rgba(0, 191, 255, 0.6),
+    inset 5px 5px 15px rgba(204, 242, 255, 0.5),
+    inset -5px -5px 15px rgba(0, 102, 153, 0.7);
+}
+
+.planet-uranus::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  border-radius: 50%;
+  border: 8px solid rgba(220, 250, 255, 0.2);
+  transform: rotate(75deg);
+}
+
+/* Pluto */
+.planet-pluto {
+  background: radial-gradient(circle at 30% 30%, 
+    #e0e0e0 5%, 
+    #ccb89a 25%, 
+    #b39a7c 45%, 
+    #997c5e 65%, 
+    #735940 85%,
+    #4d3b29 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(179, 154, 124, 0.4),
+    inset 3px 3px 8px rgba(225, 215, 200, 0.4),
+    inset -3px -3px 8px rgba(50, 40, 30, 0.7);
+}
+
+/* Nebula effect for background */
+.nebula {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(63, 0, 113, 0.3) 0%,
+    rgba(45, 0, 81, 0.2) 40%,
+    rgba(27, 0, 49, 0.1) 70%,
+    transparent 100%
+  );
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: 1;
+  animation: nebula-pulse 15s infinite alternate;
+}
+
+/* Cosmic dust */
+.cosmic-dust {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: dust-float 20s linear infinite;
+}
+
+/* Asteroid */
+.asteroid {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #a0a0a0 10%,
+    #808080 40%,
+    #606060 70%,
+    #404040 100%
+  );
+  border-radius: 60% 40% 65% 35% / 40% 65% 35% 60%;
+  box-shadow: 
+    inset 2px 2px 5px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.5);
+  animation: rotate 20s linear infinite, wobble 10s ease-in-out infinite;
+}
+
+/* Comet effect */
+.comet {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(1px);
+  box-shadow: 
+    0 0 20px 2px white,
+    0 0 30px 5px rgba(137, 207, 240, 0.6);
+  opacity: 0;
+  z-index: 5;
+}
+
+.comet::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(137,207,240,0.4) 60%, rgba(137,207,240,0) 100%);
+  border-radius: 50%;
+  transform-origin: left center;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-distance)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-distance)) rotate(-360deg);
+  }
+}
+
+@keyframes fire-trail {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes atmosphere {
+  0% {
+    transform: rotate(0deg) scale(1.05);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(360deg) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes nebula-pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+@keyframes dust-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes wobble {
+  0% {
+    border-radius: 60% 40% 65% 35% / 40% 65% 35% 60%;
+  }
+  50% {
+    border-radius: 40% 60% 35% 65% / 65% 35% 60% 40%;
+  }
+  100% {
+    border-radius: 60% 40% 65% 35% / 40% 65% 35% 60%;
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "team1",
+    "name": "João Silva",
+    "position": "CEO",
+    "bio": "Over 15 years of experience in IT leadership and strategy implementation.",
+    "image": "/assets/images/team1.jpg",
+    "social": {
+      "linkedin": "https://linkedin.com/",
+      "twitter": "https://twitter.com/"
+    }
+  },
+  {
+    "id": "team2",
+    "name": "Maria Oliveira",
+    "position": "CTO",
+    "bio": "Expert in software architecture with a passion for innovative technology solutions.",
+    "image": "/assets/images/team2.jpg",
+    "social": {
+      "linkedin": "https://linkedin.com/",
+      "github": "https://github.com/"
+    }
+  },
+  {
+    "id": "team3",
+    "name": "Carlos Santos",
+    "position": "Development Lead",
+    "bio": "Full-stack developer specialized in React and Spring Boot applications.",
+    "image": "/assets/images/team3.jpg",
+    "social": {
+      "linkedin": "https://linkedin.com/",
+      "github": "https://github.com/"
+    }
+  },
+  {
+    "id": "team4",
+    "name": "Ana Costa",
+    "position": "UX/UI Designer",
+    "bio": "Creative designer with expertise in creating beautiful and intuitive user experiences.",
+    "image": "/assets/images/team4.jpg",
+    "social": {
+      "linkedin": "https://linkedin.com/",
+      "dribbble": "https://dribbble.com/"
+    }
+  }
+]

@@ -1,0 +1,30 @@
+/* CSS compartilhado para o cursor nas páginas demo */
+.demo-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #0EA5E9; /* Azul como na imagem */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, width 0.2s, height 0.2s, background-color 0.2s;
+  mix-blend-mode: normal;
+  z-index: 9999;
+}
+
+.demo-cursor-hover {
+  width: 30px !important;
+  height: 30px !important;
+  background-color: rgba(14, 165, 233, 0.6) !important;
+}
+
+/* Remove o cursor padrão em toda a página demo */
+.demo-page {
+  cursor: none;
+}
+
+/* Remove o cursor padrão em links e botões dentro da página demo */
+.demo-page a,
+.demo-page button {
+  cursor: none;
+}

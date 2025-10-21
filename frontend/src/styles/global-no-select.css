@@ -1,0 +1,95 @@
+/* Configurações globais de prevenção de seleção de texto */
+
+/* Aplicar a todos os elementos por padrão */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Elementos de navegação e cabeçalho - muito importante que não sejam selecionáveis */
+header, 
+.header,
+.navbar,
+.nav-bar,
+nav,
+.hero-section,
+.banner,
+.page-title,
+.footer {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  cursor: none !important;
+  pointer-events: auto !important; /* Assegura que os cliques continuam funcionando */
+}
+
+/* Todos os títulos não devem ser selecionáveis */
+h1, h2, h3, h4, h5, h6,
+.title,
+.subtitle,
+.heading,
+.subheading {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  cursor: none !important;
+}
+
+/* Botões e elementos interativos */
+button,
+.button,
+a,
+.link,
+.nav-item,
+.btn,
+[role="button"] {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  cursor: pointer !important; /* Mantemos pointer para elementos clicáveis (links/btn) */
+}
+
+/* Elementos específicos do site */
+.service-card,
+.feature-item,
+.team-member,
+.process-step,
+.benefit-item,
+.testimonial,
+.logo,
+.icon,
+.menu,
+.accordion-header {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  cursor: none !important;
+}
+
+/* Permitir seleção apenas em elementos específicos */
+.selectable-text,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+[contenteditable="true"],
+code,
+pre {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text !important;
+}

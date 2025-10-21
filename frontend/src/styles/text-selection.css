@@ -1,0 +1,91 @@
+/* Text selection prevention styles */
+
+/* Prevent text selection globally for all elements by default */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Prevent text cursor and selection for headers with extra emphasis */
+h1, h2, h3, h4, h5, h6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+  pointer-events: auto !important;  /* Ensure clickable but not selectable */
+}
+
+/* Make UI elements non-selectable */
+.header-text, 
+.site-logo, 
+.hero-title, 
+.hero-subtitle,
+.section-title,
+button,
+.btn,
+a,
+.card-title,
+.icon,
+.feature-title,
+span,
+label,
+strong,
+small {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Add additional classes for navigation and UI elements */
+nav, 
+.nav-link, 
+.footer-heading,
+.menu-item,
+header,
+.app-header,
+.app-footer,
+.tabs,
+.card-header,
+.hero-content,
+.section-heading,
+.features-list,
+.benefits-list,
+.testimonial-author,
+.process-step,
+.faq-question {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none !important;
+}
+
+/* Allow text selection ONLY for content areas that explicitly need it */
+.selectable-text,
+.blog-content,
+p.description,
+.service-description,
+.contact-info,
+.about-text,
+code,
+pre,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+.editable-content {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+}

@@ -1,0 +1,150 @@
+.educacao-demo {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.educacao-nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.educacao-nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.educacao-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #EC4899;
+  transition: width 0.3s;
+}
+
+.educacao-nav-link:hover::after {
+  width: 100%;
+}
+
+.educacao-hero {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+}
+
+.curso-card {
+  transition: all 0.3s;
+  border: 1px solid #e5e7eb;
+}
+
+.curso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #EC4899;
+}
+
+.professor-card {
+  transition: all 0.3s;
+}
+
+.professor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.professor-image {
+  transition: transform 0.3s;
+}
+
+.professor-card:hover .professor-image {
+  transform: scale(1.05);
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-card {
+  transition: all 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #FCE7F3;
+  overflow: hidden;
+}
+
+.progress-value {
+  height: 100%;
+  background-color: #EC4899;
+  transition: width 0.3s ease;
+}
+
+/* Custom Education Pink Cursor */
+body.educacao-theme {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+.educacao-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.9) 0%,
+    rgba(236, 72, 153, 0.7) 40%,
+    rgba(236, 72, 153, 0.3) 80%,
+    rgba(236, 72, 153, 0) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 
+    0 0 10px rgba(236, 72, 153, 0.6),
+    0 0 20px rgba(236, 72, 153, 0.3);
+  will-change: transform;
+}
+
+.educacao-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.educacao-cursor-hover {
+  width: 50px !important;
+  height: 50px !important;
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 1) 0%,
+    rgba(236, 72, 153, 0.8) 40%,
+    rgba(236, 72, 153, 0.4) 80%,
+    rgba(236, 72, 153, 0) 100%
+  );
+  box-shadow: 
+    0 0 15px rgba(236, 72, 153, 0.8),
+    0 0 30px rgba(236, 72, 153, 0.4);
+}
