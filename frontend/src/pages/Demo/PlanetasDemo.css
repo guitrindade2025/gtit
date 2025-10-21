@@ -3,6 +3,17 @@ body.planetas-demo {
   overflow-x: hidden;
 }
 
+/* Hide custom cursor and allow system cursor on touch/mobile */
+@media (hover: none), (pointer: coarse) {
+  body.planetas-demo {
+    cursor: auto;
+  }
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+}
+
 .stars-container div {
   animation: twinkle 5s infinite alternate;
 }
@@ -437,6 +448,21 @@ body.planetas-demo {
   opacity: 0.5;
   z-index: 1;
   animation: nebula-pulse 15s infinite alternate;
+}
+
+/* Constrain planet overlay so it doesn't cover the footer */
+.planets-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 140px; /* leave space for footer */
+}
+
+@media (max-width: 640px) {
+  .planets-overlay {
+    bottom: 180px; /* a bit more space on small screens */
+  }
 }
 
 /* Cosmic dust */

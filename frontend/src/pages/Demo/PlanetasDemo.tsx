@@ -242,8 +242,27 @@ const PlanetasDemo = () => {
         nebulaRef.current.style.transform = `translate(${x}px, ${y}px)`;
       }
     };
+    
+    // Mobile: scroll-based parallax fallback
+    const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    const handleScroll = () => {
+      const y = window.scrollY;
+      const planets = document.querySelectorAll('.planet');
+      planets.forEach((planet, index) => {
+        const speed = (index + 1) * 0.05; // slower movement
+        (planet as HTMLElement).style.transform = `translateY(${y * speed}px)`;
+      });
+      if (nebulaRef.current) {
+        nebulaRef.current.style.transform = `translateY(${y * 0.02}px)`;
+      }
+    };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    if (isTouch) {
+      // Don't render the custom cursor/trails on touch devices
+      document.addEventListener('scroll', handleScroll, { passive: true });
+    } else {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
     
     // Inline cursor styles for links
     const links = document.querySelectorAll('a, button');
@@ -267,7 +286,11 @@ const PlanetasDemo = () => {
 
     return () => {
       document.body.classList.remove('planetas-demo');
-      document.removeEventListener('mousemove', handleMouseMove);
+      if (isTouch) {
+        document.removeEventListener('scroll', handleScroll as any);
+      } else {
+        document.removeEventListener('mousemove', handleMouseMove);
+      }
       clearInterval(cometInterval);
       
       links.forEach(link => {
@@ -309,7 +332,7 @@ const PlanetasDemo = () => {
     { name: 'Contato', href: '#contact' }
   ];
   return (
-    <div className="relative bg-black text-white min-h-screen overflow-hidden cursor-none">
+    <div className="relative bg-black text-white min-h-screen overflow-hidden">
       {/* Nebula Background Effect */}
       <div ref={nebulaRef} className="nebula fixed inset-0"></div>
       
@@ -328,8 +351,8 @@ const PlanetasDemo = () => {
       {/* Stars Background */}
       <div ref={starsRef} className="stars-container fixed inset-0 z-0" />
       
-      {/* Animated Planets */}
-      <div className="fixed inset-0 z-10 pointer-events-none">
+  {/* Animated Planets */}
+  <div className="planets-overlay pointer-events-none z-10">
         {/* Mercury - closest to the sun */}
         <div className="planet planet-mercury absolute w-14 h-14 rounded-full top-[18%] left-[12%]" />
         
@@ -420,7 +443,7 @@ const PlanetasDemo = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight break-words"
             >
               Explore o <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Universo</span> Digital
             </motion.h1>
@@ -466,7 +489,7 @@ const PlanetasDemo = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 break-words">
                 A <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Jornada</span> Cósmica
               </h2>
               <p className="text-xl text-white/70 max-w-3xl mx-auto">
@@ -554,7 +577,7 @@ const PlanetasDemo = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 break-words">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Exploração</span> Planetária
               </h2>
               <p className="text-xl text-white/70 max-w-3xl mx-auto">
@@ -620,7 +643,7 @@ const PlanetasDemo = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 break-words">
                 Últimas <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Descobertas</span>
               </h2>
               <p className="text-xl text-white/70 max-w-3xl mx-auto">
