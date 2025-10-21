@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 import StatsSection from './StatsSection'; // Importando o novo componente StatsSection
 import type { ReactNode } from 'react';
 import type { IconType } from 'react-icons';
+// Imagens locais (bundled pelo Vite)
+import imgDesenvWeb from '../assets/images/DesenvWeb.jpg';
+import imgSegDig from '../assets/images/SegDig.jpg';
 
 export type Service = {
   slug: string;
@@ -76,7 +79,7 @@ const Services = () => {
       description: 'Websites empresariais, comércio eletrónico e plataformas rápidas e escaláveis para aumentar a sua presença online.',
       link: '/services/web-development',
       button: 'Explorar Websites',
-  image: '/assets/images/DesenvWeb.jpg',
+  image: imgDesenvWeb,
       features: ['Websites Corporativos', 'E-commerce', 'Plataformas Digitais', 'SEO']
     },
     {
@@ -106,7 +109,7 @@ const Services = () => {
       description: 'Proteção avançada com auditorias e testes que mantêm os seus dados seguros.',
       link: '/services/security',
       button: 'Ver Soluções de Segurança',
-      image: '/src/assets/images/SegDig.jpg',
+  image: imgSegDig,
       features: ['Cibersegurança', 'Auditorias', 'Pentesting', 'Consultoria']
     },
     {
