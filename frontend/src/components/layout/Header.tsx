@@ -21,8 +21,8 @@ const Header = () => {
   
   // Service links for the dropdown/quick access
   const serviceLinks = [
-    { name: 'Web Development', path: '/services/web-development', icon: <FaCode className="mr-2" /> },
-    { name: 'Mobile Apps', path: '/services/mobile-apps', icon: <FaMobile className="mr-2" /> },
+    { name: 'Desenvolvimento Web', path: '/services/web-development', icon: <FaCode className="mr-2" /> },
+    { name: 'Aplicações Móveis', path: '/services/mobile-apps', icon: <FaMobile className="mr-2" /> },
   ];
   
   // Check if current path matches link path

@@ -90,8 +90,8 @@ const MobileApps = () => {
     },
     {
       number: '05',
-      title: 'Publicação nas Lojas',
-      description: 'Preparamos e publicamos a sua aplicação nas lojas oficiais (Google Play e Apple App Store), seguindo todas as diretrizes.'
+      title: 'Instalação nos Dispositivos',
+      description: 'Fazemos a instalação nos dispositivos da sua organização e garantimos que tudo fica a funcionar corretamente. Se necessário, também ajudamos com a publicação nas lojas.'
     },
     {
       number: '06',

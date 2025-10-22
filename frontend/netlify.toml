@@ -1,14 +1,3 @@
-[build]
-  command = "npm run build"
-  publish = "dist"
-
-[[redirects]]
-  from = "/assets/*"
-  to = "/assets/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+## Note: This file is intentionally left empty.
+## Netlify uses the root-level netlify.toml for build and redirects.
+## Keeping this file empty prevents duplicate/conflicting config.

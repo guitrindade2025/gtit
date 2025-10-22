@@ -77,8 +77,8 @@ const Contact = () => {
       setFormStatus('success');
       reset();
     } catch (error) {
-      setFormStatus('error');
-      setErrorMessage('Ocorreu um erro ao enviar a vossa mensagem. Por favor, tentem novamente.');
+  setFormStatus('error');
+  setErrorMessage('Ocorreu um erro ao enviar a sua mensagem. Por favor, tente novamente.');
     }
   };
 
@@ -159,7 +159,7 @@ const Contact = () => {
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md flex items-center">
                     <FaCheckCircle className="text-green-500 mr-3" />
                     <p className="text-green-700">
-                      A vossa mensagem foi enviada com sucesso! Entraremos em contacto em breve.
+                      A sua mensagem foi enviada..
                     </p>
                   </div>
                 )}
@@ -169,7 +169,7 @@ const Contact = () => {
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center">
                     <FaExclamationTriangle className="text-red-500 mr-3" />
                     <p className="text-red-700">
-                      {errorMessage || 'Ocorreu um erro ao enviar a vossa mensagem.'}
+                      {errorMessage || 'Ocorreu um erro ao enviar a sua mensagem.'}
                     </p>
                   </div>
                 )}
@@ -263,7 +263,7 @@ const Contact = () => {
                       className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                         errors.message ? 'border-red-500' : 'border-gray-300'
                       }`}
-                      placeholder="Escreva a vossa mensagem aqui..."
+                      placeholder="Escreva a sua mensagem aqui..."
                       {...register('message', { required: 'Este campo é de preenchimento obrigatório' })}
                     ></textarea>
                     {errors.message && (
