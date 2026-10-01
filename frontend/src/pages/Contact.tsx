@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { trackContact } from '../analytics';
 import { useForm } from 'react-hook-form';
 import { 
   FaMapMarkerAlt, 
@@ -70,13 +71,14 @@ const Contact = () => {
           name: data.name,
           email: data.email,
           subject: data.subject,
-          message: data.message,
+          message: data.message + (data.phone ? '\nTelefone: ' + data.phone : ''),
         },
         'OyScfh5Re3iaf3zdA' // Public Key
       );
+      trackContact('form');
       setFormStatus('success');
       reset();
-    } catch (error) {
+    } catch {
   setFormStatus('error');
   setErrorMessage('Ocorreu um erro ao enviar a sua mensagem. Por favor, tente novamente.');
     }
@@ -104,7 +106,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form and Info */}
-      <section id="contact-form" className="py-16 md:py-24 bg-light">
+      <section id="formulario" className="py-16 md:py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
@@ -123,18 +125,18 @@ const Contact = () => {
                       <div>
                         <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                         {item.details.map((detail, i) => (
-                          <p key={i} className="text-gray-600 mb-1">{detail}</p>
+                          <p key={i} className="text-gray-600 mb-1">{item.title === 'Telefone' ? <a href="tel:+351934094801" className="text-primary underline" onClick={() => trackContact('phone')}>{detail}</a> : item.title === 'Email' ? <a href="mailto:suporte@gtit.pt" className="text-primary underline" onClick={() => trackContact('email')}>{detail}</a> : detail}</p>
                         ))}
                         {/* Adiciona o botão "Ligar Agora" logo abaixo do bloco Horário */}
                           {item.title === 'Horário' && (
                             <div style={{ marginTop: '1cm' }}>
-                              <Link 
-                                to="tel:+351211234567" 
+                              <a
+                                href="tel:+351934094801" onClick={() => trackContact('phone')}
                                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors"
                               >
                                 <FaPhone className="mr-2" />
                                 Ligar Agora
-                              </Link>
+                              </a>
                             </div>
                           )}
                       </div>
@@ -156,17 +158,17 @@ const Contact = () => {
                 
                 {/* Success message */}
                 {formStatus === 'success' && (
-                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md flex items-center">
+                  <div role="status" className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md flex items-center">
                     <FaCheckCircle className="text-green-500 mr-3" />
                     <p className="text-green-700">
-                      A sua mensagem foi enviada..
+                      A sua mensagem foi enviada. Obrigado pelo contacto.
                     </p>
                   </div>
                 )}
                 
                 {/* Error message */}
                 {formStatus === 'error' && (
-                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center">
+                  <div role="alert" className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center">
                     <FaExclamationTriangle className="text-red-500 mr-3" />
                     <p className="text-red-700">
                       {errorMessage || 'Ocorreu um erro ao enviar a sua mensagem.'}
@@ -181,7 +183,7 @@ const Contact = () => {
                       Nome Completo <span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="name"
+                      id="name" autoComplete="name"
                       type="text"
                       className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                         errors.name ? 'border-red-500' : 'border-gray-300'
@@ -200,7 +202,7 @@ const Contact = () => {
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="email"
+                      id="email" autoComplete="email"
                       type="email"
                       className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                         errors.email ? 'border-red-500' : 'border-gray-300'
@@ -225,7 +227,7 @@ const Contact = () => {
                       Telefone
                     </label>
                     <input
-                      id="phone"
+                      id="phone" autoComplete="tel"
                       type="tel"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                       placeholder="+351 900 000 000"
@@ -271,6 +273,7 @@ const Contact = () => {
                     )}
                   </div>
                   
+                  <p className="text-sm text-gray-600">Os dados deste formulário serão utilizados para responder ao seu pedido, através do serviço EmailJS. <Link to="/privacy" className="text-primary underline">Privacidade e cookies</Link>.</p>
                   {/* Submit button */}
                   <div>
                     <button
@@ -289,7 +292,7 @@ const Contact = () => {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                           </svg>
-                          Enviando...
+                          A enviar...
                         </span>
                       ) : 'Enviar Mensagem'}
                     </button>

@@ -36,7 +36,7 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) => {
           onConsentChange?.(parsed);
           return;
         }
-      } catch {}
+      } catch { /* Ignore an invalid saved preference. */ }
     }
     setShowBanner(true);
   }, [onConsentChange]);

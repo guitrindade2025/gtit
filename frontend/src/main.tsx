@@ -7,6 +7,7 @@ import App from './App.tsx'
 
 // Adicionar classe global para desativar seleção de texto
 document.body.classList.add('no-text-select');
+document.getElementById('root')?.removeAttribute('data-prerender');
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

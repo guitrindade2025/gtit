@@ -56,7 +56,7 @@ const Header = () => {
           </Link>
         </motion.div>
           {/* Desktop Navigation */}
-        <nav className="hidden md:block">
+        <nav className="hidden xl:block">
           <ul className="flex items-center gap-6">
             {navLinks.map((link, index) => (
               <motion.li
@@ -121,9 +121,11 @@ const Header = () => {
         
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-secondary focus:outline-none"
+          className="xl:hidden text-secondary focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? (
             <HiX className="w-6 h-6" />
@@ -139,7 +141,7 @@ const Header = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white"
+          id="mobile-menu" className="xl:hidden bg-white"
         >
           <div className="container mx-auto px-4 py-5">
             <ul className="flex flex-col gap-4">
@@ -169,7 +171,7 @@ const Header = () => {
               </li>
               
               {/* Service links in mobile menu */}
-              <div className="border-t border-gray-200 pt-4 mt-4">
+              <li className="border-t border-gray-200 pt-4 mt-4"><ul>
                 {serviceLinks.map((service, index) => (
                   <li key={index}>
                     <Link
@@ -186,7 +188,7 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
-              </div>
+              </ul></li>
             </ul>
           </div>
         </motion.div>

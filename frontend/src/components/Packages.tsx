@@ -67,7 +67,7 @@ export default function Packages() {
           viewport={{ once: true }}
           className="text-lg text-gray-700 text-center max-w-2xl mx-auto mb-12"
         >
-          Escolha o pacote ideal para o seu negócio. Todos incluem suporte dedicado e implementação rápida.
+          Escolha o pacote ideal para o seu negócio. O âmbito, os prazos e as condições são definidos na proposta.
         </motion.p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {packages.map((pkg, idx) => (
@@ -79,7 +79,7 @@ export default function Packages() {
               viewport={{ once: true }}
               className="bg-white rounded-xl shadow-lg border border-blue-50 p-8 md:p-10 flex flex-col h-full hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-primary text-xl font-semibold mb-2 text-center drop-shadow-sm" style={{ cursor: 'none' }}>{pkg.title}</h3>
+              <h3 className="text-primary text-xl font-semibold mb-2 text-center drop-shadow-sm">{pkg.title}</h3>
               <p className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 text-center">{pkg.price}</p>
               {pkg.intro && (
                 <p className="text-sm text-blue-700 mt-4 text-center font-medium">{pkg.intro}</p>
@@ -88,7 +88,7 @@ export default function Packages() {
                 {pkg.features.map((feature, i) => {
                   if (feature === 'Extras:') {
                     return (
-                      <div key={i} className="mt-4 mb-2 font-semibold text-blue-700 text-sm">Extras:</div>
+                      <li key={i} className="mt-4 mb-2 font-semibold text-blue-700 text-sm">Extras:</li>
                     );
                   }
                   if (feature.startsWith('—')) {
@@ -110,7 +110,7 @@ export default function Packages() {
               <div className="flex-grow" />
               <div className="flex items-end justify-center h-20">
                 <Link
-                  to={pkg.title === 'Website Profissional' ? '/services/web-development' : '/contact#pacotes'}
+                  to={pkg.title === 'Website Profissional' ? '/services/web-development' : '/contact#formulario'}
                   aria-label={`Saber mais sobre o pacote ${pkg.title}`}
                   className="w-full px-6 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-colors shadow text-center"
                 >

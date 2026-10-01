@@ -51,54 +51,34 @@ const api = axios.create({
 // Service for handling contact form submissions
 export const contactService = {
   submitContactForm: async (formData: ContactFormData) => {
-    try {
-      const response = await api.post('/contact', formData);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.post('/contact', formData);
+    return response.data;
   },
 };
 
 // Service for handling service-related data
 export const serviceService = {
   getAllServices: async (): Promise<Service[]> => {
-    try {
-      const response = await api.get('/services');
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.get('/services');
+    return response.data;
   },
   
   getServiceById: async (id: string): Promise<Service> => {
-    try {
-      const response = await api.get(`/services/${id}`);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.get(`/services/${id}`);
+    return response.data;
   },
 };
 
 // Service for handling company information
 export const companyService = {
   getTeamMembers: async (): Promise<TeamMember[]> => {
-    try {
-      const response = await api.get('/team');
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.get('/team');
+    return response.data;
   },
   
   getTestimonials: async (): Promise<Testimonial[]> => {
-    try {
-      const response = await api.get('/testimonials');
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.get('/testimonials');
+    return response.data;
   },
 };
 
@@ -108,15 +88,11 @@ export const fetchTestimonials = async (): Promise<Testimonial[]> => {
     // First try to get data from backend
     const response = await api.get('/testimonials');
     return response.data;
-  } catch (error) {
+  } catch {
     // Fallback to fetch local data if API fails
-    try {
-      const response = await fetch('/assets/data/testimonials.json');
-      const data = await response.json();
-      return data;
-    } catch (localError) {
-      throw localError;
-    }
+    const response = await fetch('/assets/data/testimonials.json');
+    const data = await response.json();
+    return data;
   }
 };
 
@@ -125,15 +101,11 @@ export const fetchServices = async (): Promise<Service[]> => {
     // First try to get data from backend
     const response = await api.get('/services');
     return response.data;
-  } catch (error) {
+  } catch {
     // Fallback to fetch local data if API fails
-    try {
-      const response = await fetch('/assets/data/services.json');
-      const data = await response.json();
-      return data;
-    } catch (localError) {
-      throw localError;
-    }
+    const response = await fetch('/assets/data/services.json');
+    const data = await response.json();
+    return data;
   }
 };
 
@@ -142,15 +114,11 @@ export const fetchTeamMembers = async (): Promise<TeamMember[]> => {
     // First try to get data from backend
     const response = await api.get('/team');
     return response.data;
-  } catch (error) {
+  } catch {
     // Fallback to fetch local data if API fails
-    try {
-      const response = await fetch('/assets/data/team.json');
-      const data = await response.json();
-      return data;
-    } catch (localError) {
-      throw localError;
-    }
+    const response = await fetch('/assets/data/team.json');
+    const data = await response.json();
+    return data;
   }
 };
 

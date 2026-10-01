@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaShieldAlt, FaUserCheck, FaCloud, FaBolt, FaChartLine, FaPiggyBank, FaCogs, FaLightbulb, FaRocket, FaChartBar, FaLock, FaEye, FaDatabase } from 'react-icons/fa';
@@ -39,20 +38,6 @@ export default function Security() {
 
   return (
     <main className="flex-grow">
-      <Helmet>
-        <title>Segurança & Proteção Digital | GTIT</title>
-        <meta name="description" content="Serviços de segurança digital, proteção de dados, backups, monitorização e suporte para PMEs. GTIT Portugal." />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Segurança & Proteção Digital para PMEs",
-            "provider": {"@type": "Organization", "name": "GTIT"},
-            "areaServed": "Portugal",
-            "description": "Serviços de segurança digital, proteção de dados, backups, monitorização e suporte para PMEs."
-          }
-        `}</script>
-      </Helmet>
       
       {/* Hero Section */}
   <section className="relative bg-gradient-to-br from-primary to-secondary text-white py-24 md:py-32 overflow-hidden">

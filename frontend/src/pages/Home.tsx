@@ -6,7 +6,6 @@ import {
   FaChartLine, 
   FaUsers, 
   FaServer, 
-  FaShieldAlt,
   FaCloud,
   FaCode,
   FaMobileAlt
@@ -57,7 +56,7 @@ const Home = () => {
     {
       icon: <FaUsers />,
       title: 'Equipa Dedicada',
-      description: 'A nossa equipa de 10+ anos de experiência está sempre disponível para o apoiar e garantir o sucesso dos seus projetos.',
+      description: 'A nossa equipa acompanha as necessidades do seu negócio, com apoio próximo e condições de serviço definidas consigo.',
       imageSrc: '/assets/images/icon-internet-world-nas-maos-de-uma-tecnologia-de-rede-de-empresario-e-comunicacao_34998-149.jpg'
     }
   ];
@@ -101,8 +100,7 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection
         title="Tecnologia que simplesmente funciona."
-        subtitle="Suporte IT, Websites e Cloud para PMEs.
-Menos problemas, mais soluções."
+        subtitle="Suporte informático, Microsoft 365 e Cloud para PMEs em Lisboa."
         ctaText="Pedir proposta"
         ctaLink="/contact"
         secondaryCtaText="Ver pacotes"
@@ -175,8 +173,7 @@ Menos problemas, mais soluções."
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Parceria de Confiança no Suporte Informático</h2>
               <p className="text-lg text-gray-600 mb-8">
                 Construímos relações de confiança duradouras com os nossos clientes. 
-                Com mais de 10 anos de experiência, oferecemos suporte técnico especializado e contínuo, 
-                manutenção proactiva e resolução rápida de problemas para manter a sua empresa sempre operacional.
+                Prestamos suporte técnico, manutenção preventiva e apoio à resolução de problemas, com o acompanhamento definido para a sua empresa.
               </p>
               
               <div className="space-y-4 mb-8">
@@ -190,7 +187,7 @@ Menos problemas, mais soluções."
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-700">Backup seguro e recuperação garantida de dados</p>
+                  <p className="text-gray-700">Cópias de segurança e testes de recuperação de dados</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
@@ -233,7 +230,7 @@ Menos problemas, mais soluções."
       </section>
 
       {/* Services Section */}
-  <section id="pacotes" className="py-16 md:py-24 bg-gradient-to-r from-[#0066CC] to-[#0b1627] relative overflow-hidden">
+  <section id="servicos" className="py-16 md:py-24 bg-gradient-to-r from-[#0066CC] to-[#0b1627] relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-accent rounded-full blur-3xl"></div>

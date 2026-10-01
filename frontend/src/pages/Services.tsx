@@ -4,7 +4,6 @@ import { FaCode, FaMobileAlt, FaCloudUploadAlt, FaChartLine, FaLock, FaDesktop }
 import { FiSearch, FiEdit3, FiCode, FiCheckCircle, FiSend, FiRefreshCw } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 // import { Helmet } from 'react-helmet-async';
-import StatsSection from './StatsSection'; // Importando o novo componente StatsSection
 import type { ReactNode } from 'react';
 import type { IconType } from 'react-icons';
 // Imagens locais (bundled pelo Vite)
@@ -62,11 +61,13 @@ const Services = () => {
 
   // Services data
   const services: Service[] = [
+    { slug: 'suporte-informatico', icon: <FaDesktop className="text-3xl text-primary" />, title: 'Suporte Informático', description: 'Apoio remoto e presencial em Lisboa, manutenção e acompanhamento da informática da sua empresa.', link: '/services/support', button: 'Conhecer o suporte', image: '/assets/images/infra-estrutura-de-rede.jpg', features: ['Utilizadores', 'Equipamentos', 'Redes', 'Backups'] },
+    { slug: 'microsoft-365', icon: <FaCloudUploadAlt className="text-3xl text-primary" />, title: 'Microsoft 365', description: 'Gestão de contas, email, permissões e colaboração para equipas com necessidades reais de acompanhamento.', link: '/services/microsoft-365', button: 'Conhecer Microsoft 365', image: '/assets/images/Ilustração-de-Tecnologia.png', features: ['Outlook', 'Teams', 'OneDrive', 'SharePoint'] },
     {
       slug: 'consultoria-tecnologica',
       icon: <FaChartLine className="text-3xl text-primary" />,
       title: 'Consultoria & Suporte Técnico',
-  description: 'Acompanhamento próximo e suporte rápido para resolver qualquer problema, sempre que precisar.',
+  description: 'Diagnóstico, planeamento e acompanhamento das prioridades tecnológicas da sua empresa.',
       link: '/services/consulting',
       button: 'Explorar Consultoria',
       image: '/assets/images/icon-internet-world-nas-maos-de-uma-tecnologia-de-rede-de-empresario-e-comunicacao_34998-149.jpg',
@@ -287,14 +288,6 @@ const Services = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section - Animated & Accessible */}
-      <section aria-labelledby="metrics-h2" className="section bg-secondary text-white">
-        <div className="container-custom">
-          <h2 id="metrics-h2" className="text-3xl md:text-4xl font-bold mb-4 text-secondary">Métricas</h2>
-          <StatsSection />
         </div>
       </section>
 

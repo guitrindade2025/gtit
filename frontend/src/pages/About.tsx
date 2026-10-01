@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
 import { FaBriefcase, FaRegLightbulb, FaHandshake, FaUsers } from 'react-icons/fa';
 
 const About = () => {
@@ -14,38 +13,6 @@ const About = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [statsRef, statsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  // Counter animation hook
-  function useCounterUp(target: number, start: boolean, duration = 1200) {
-    const [count, setCount] = useState(start ? target : 0);
-    useEffect(() => {
-      if (!start) return;
-      let startTime: number | null = null;
-      function step(ts: number) {
-        if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / duration, 1);
-        setCount(Math.floor(progress * target));
-        if (progress < 1) requestAnimationFrame(step);
-        else setCount(target);
-      }
-      requestAnimationFrame(step);
-      return () => setCount(target);
-    }, [start, target, duration]);
-    return count;
-  }
-
-  // Statistics data
-  const stats = [
-    { value: 120, label: 'Projetos Entregues', prefix: '+' },
-    { value: 95, label: 'Taxa de Satisfação', suffix: '%' },
-    { value: 10, label: 'Anos de Experiência', suffix: '+' },
-    { value: 250, label: 'Clientes Satisfeitos', prefix: '+' },
-  ];
 
   // Values data
   const values = [
@@ -122,52 +89,12 @@ const About = () => {
               </p>
               
               <p className="text-gray-600 leading-relaxed">
-                Com <strong>mais de 10 anos de experiência</strong> no mercado e <strong>mais de 120 projetos entregues</strong>, consolidámo-nos como parceiros estratégicos de empresas que procuram excelência em soluções tecnológicas. A nossa <strong>taxa de satisfação de 95%</strong> e <strong>mais de 250 clientes satisfeitos</strong> refletem o nosso compromisso com a qualidade e inovação.
+                Trabalhamos com proximidade e informação clara: analisamos as necessidades da empresa, propomos as soluções e acompanhamos a sua utilização. O âmbito de cada serviço, os custos e os canais de contacto são definidos na proposta.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Statistics Section - Highlighted Stats */}
-      <section className="section bg-gradient-to-r from-primary to-secondary text-white" ref={statsRef}>
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={statsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              O Nosso Progresso
-            </h2>
-            <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Números que refletem o nosso compromisso e dedicação aos nossos clientes
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => {
-              const value = useCounterUp(stat.value, statsInView);
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="p-6"
-                >
-                  <h3 className="text-4xl md:text-5xl font-bold mb-2">
-                    {stat.prefix || ''}{value}{stat.suffix || ''}
-                  </h3>
-                  <p className="text-lg opacity-90">{stat.label}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Mission and Vision Section - Simple & Clean */}
       <section className="section bg-light">
         <div className="container-custom">

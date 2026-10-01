@@ -105,19 +105,19 @@ export const CursorProvider = ({ children }: CursorProviderProps) => {
   useEffect(() => {
     try {
       localStorage.setItem('cursorPrimaryColor', primaryColor);
-    } catch {}
+    } catch { /* The site works without optional cursor preferences. */ }
   }, [primaryColor]);
 
   useEffect(() => {
     try {
       localStorage.setItem('cursorSecondaryColor', secondaryColor);
-    } catch {}
+    } catch { /* The site works without optional cursor preferences. */ }
   }, [secondaryColor]);
 
   useEffect(() => {
     try {
       localStorage.setItem('enableCustomCursor', enableCustomCursor.toString());
-    } catch {}
+    } catch { /* The site works without optional cursor preferences. */ }
   }, [enableCustomCursor]);
 
   return (

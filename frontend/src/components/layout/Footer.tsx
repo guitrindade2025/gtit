@@ -37,26 +37,26 @@ const Footer = () => {
     {
       title: 'Sobre Nós',
       links: [
-        { name: 'A Nossa História', path: '/about#historia' },
-        { name: 'Como Trabalhamos', path: '/about#metodologia' },
-        { name: 'Parceria de Confiança', path: '/about#parceria' }
+        { name: 'A Nossa História', path: '/about' },
+        { name: 'Como Trabalhamos', path: '/services/support#acompanhamento' },
+        { name: 'Parceria de Confiança', path: '/services/support' }
       ]
     },
     {
       title: 'Serviços',
       links: [
-        { name: 'Desenvolvimento Web', path: '/services#web-development' },
-        { name: 'Aplicações Móveis', path: '/services#mobile-apps' },
-        { name: 'Consultoria Tecnológica', path: '/services#consultoria' },
-        { name: 'Suporte e Manutenção', path: '/services#suporte' }
+        { name: 'Desenvolvimento Web', path: '/services/web-development' },
+        { name: 'Aplicações Móveis', path: '/services/mobile-apps' },
+        { name: 'Consultoria Tecnológica', path: '/services/consulting' },
+        { name: 'Suporte e Manutenção', path: '/services/support' }
       ]
     },
     {
       title: 'Contacto',
       links: [
         { name: 'Falar Connosco', path: '/contact#formulario' },
-        { name: 'Solicitar Orçamento', path: '/contact#orcamento' },
-        { name: 'Pedir Suporte', path: '/contact#suporte' }
+        { name: 'Solicitar Orçamento', path: '/contact#formulario' },
+        { name: 'Pedir Suporte', path: '/contact#formulario' }
       ]
     }
   ];
@@ -96,7 +96,7 @@ const Footer = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Suporte Contínuo</h3>
               <p className="text-gray-300">
-                Oferecemos assistência técnica especializada e manutenção proactiva para garantir que os seus sistemas funcionem perfeitamente.
+                Oferecemos assistência técnica especializada e manutenção proactiva para reduzir interrupções e acompanhar as necessidades da sua empresa.
               </p>
             </div>
             <div className="text-center">
@@ -181,7 +181,7 @@ const Footer = () => {
                 Tecnologia com confiança. Parceria para o futuro.
               </p>
             </div>
-            {/* Links removidos conforme solicitado */}
+            <div className="flex gap-5 text-sm"><Link to="/privacy" className="underline text-gray-200">Privacidade</Link><button onClick={() => window.dispatchEvent(new Event('gtit-cookie-settings'))} className="underline text-gray-200">Gerir cookies</button></div>
           </div>
         </div>
       </div>

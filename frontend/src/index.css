@@ -148,3 +148,12 @@ h1, h2, h3, h4, h5, h6 {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* Keep pre-rendered content readable before JavaScript starts. */
+#root[data-prerender] * { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+[id] { scroll-margin-top: 110px; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 100; background: white; color: #0066cc; padding: 12px 18px; }
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid #0284c7; outline-offset: 4px; }
+main p, main li, footer p { -webkit-user-select: text !important; user-select: text !important; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }

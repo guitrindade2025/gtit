@@ -96,7 +96,7 @@ const EntretenimentoDemo = () => {
       }
     }
     
-    let particlesArray: Particle[] = [];
+    const particlesArray: Particle[] = [];
     
     // Generate particles when mouse moves
     const generateParticles = (e: MouseEvent) => {

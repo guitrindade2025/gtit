@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -7,11 +6,9 @@ import {
   FaShieldAlt, 
   FaChartLine, 
   FaRocket, 
-  FaPiggyBank, 
   FaBolt, 
   FaUserCheck, 
   FaHandshake,
-  FaDigitalTachograph,
   FaSearch,
   FaClipboardList,
   FaPlay,
@@ -111,20 +108,6 @@ export default function Consulting() {
 
   return (
     <main className="flex-grow">
-      <Helmet>
-        <title>Consultoria & Suporte Técnico para PME | GTIT</title>
-        <meta name="description" content="Consultoria tecnológica e suporte técnico especializado para PME. Helpdesk dedicado, diagnóstico e implementação de soluções. GTIT Portugal." />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Consultoria & Suporte Técnico para PME",
-            "provider": {"@type": "Organization", "name": "GTIT"},
-            "areaServed": "Portugal",
-            "description": "Consultoria tecnológica e suporte técnico especializado para PME. Helpdesk dedicado, diagnóstico e implementação de soluções."
-          }
-        `}</script>
-      </Helmet>
       
       {/* Hero Section */}
       <section className="relative py-32 md:py-40 bg-gradient-to-br from-primary to-secondary overflow-hidden">

@@ -26,15 +26,15 @@ const HeroSection = ({
   minimal = false,
   primaryAriaLabel,
   secondaryAriaLabel,
-}: HeroSectionProps) => {  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+}: HeroSectionProps) => {  const [isMobile, setIsMobile] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const isFirstRender = useRef(true);
   
   // Divide title and subtitle for word-by-word animations
-  const [titleParts, setTitleParts] = useState<string[]>([]);
-  const [subtitleParts, setSubtitleParts] = useState<string[]>([]);
+  const [titleParts, setTitleParts] = useState<string[]>(title.split(' '));
+  const [subtitleParts, setSubtitleParts] = useState<string[]>(subtitle.split(' '));
   
   // Parallax scroll effects
   const { scrollYProgress } = useScroll({
@@ -62,6 +62,7 @@ const HeroSection = ({
       setIsMobile(window.innerWidth < 768);
     };
     
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

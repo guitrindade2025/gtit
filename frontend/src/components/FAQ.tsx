@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const faqs = [
   {
     question: 'Que tipo de suporte oferecem?',
-    answer: 'Damos assistência técnica permanente, manutenção preventiva e resolução rápida de problemas. Adaptamos o nível de serviço às necessidades da sua empresa.'
+    answer: 'Prestamos assistência remota e presencial, manutenção preventiva e apoio aos utilizadores. O âmbito e os tempos de resposta são definidos na proposta.'
   },
   {
     question: 'Tratam da gestão de domínios e DNS?',
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: 'Gerem contas Microsoft 365?',
-    answer: 'Sim. Gerimos utilizadores, permissões, segurança e backups. Também ajudamos na adoção de novas funcionalidades do Microsoft 365 para aumentar produtividade e proteger dados.'
+    answer: 'Sim. Acompanhamos utilizadores, permissões, segurança e backups, de acordo com o serviço contratado. Também ajudamos na adoção de novas funcionalidades do Microsoft 365 para aumentar produtividade e proteger dados.'
   },
   {
     question: 'Criam e mantêm sites?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: 'Como garantem a segurança e continuidade dos serviços?',
-    answer: 'Realizamos backups regulares, planos de recuperação em caso de falha e reforço de segurança nos sistemas, garantindo estabilidade e continuidade.'
+    answer: 'Realizamos backups regulares, planos de recuperação em caso de falha e reforço de segurança nos sistemas, para reduzir o impacto de falhas e preparar a recuperação.'
   },
   {
     question: 'Posso contratar apenas um serviço?',

@@ -287,7 +287,7 @@ const PlanetasDemo = () => {
     return () => {
       document.body.classList.remove('planetas-demo');
       if (isTouch) {
-        document.removeEventListener('scroll', handleScroll as any);
+        document.removeEventListener('scroll', handleScroll);
       } else {
         document.removeEventListener('mousemove', handleMouseMove);
       }

@@ -1,0 +1,10 @@
+import { email } from '../seo';
+export default function Privacy() {
+  return <main className="pt-36 pb-20 bg-white"><div className="container-custom max-w-3xl space-y-8">
+    <h1 className="text-4xl">Privacidade e cookies</h1>
+    <section><h2 className="text-2xl mb-3">Pedidos de contacto</h2><p>Os dados que fornece no formulário são utilizados pela GT IT para receber, analisar e responder ao seu pedido. O envio utiliza o serviço EmailJS. Pode contactar-nos diretamente por email em <a className="text-primary underline" href={'mailto:' + email}>{email}</a>.</p><p className="mt-3">Envie apenas a informação necessária ao pedido. Não inclua palavras-passe, códigos de acesso ou dados confidenciais de terceiros.</p></section>
+    <section><h2 className="text-2xl mb-3">Medição de utilização</h2><p>O Google Analytics 4 só é carregado depois de aceitar os cookies analíticos. É utilizado para medir a utilização das páginas e as ações de contacto. Os campos do formulário, incluindo nome, email, telefone e mensagem, não são enviados pelo site como parâmetros de eventos para o Analytics.</p><p className="mt-3">A configuração do site não ativa funcionalidades de publicidade. A recusa dos cookies analíticos não impede a navegação nem o envio de um pedido.</p></section>
+    <section><h2 className="text-2xl mb-3">A sua escolha</h2><p>A preferência de cookies é guardada neste navegador durante 180 dias. Pode voltar a decidir a qualquer momento no botão abaixo ou no rodapé. Os cookies analíticos são configurados com uma duração de 180 dias.</p><button className="btn btn-outline mt-4" onClick={() => window.dispatchEvent(new Event('gtit-cookie-settings'))}>Gerir cookies</button></section>
+    <section><h2 className="text-2xl mb-3">Informação e pedidos sobre os seus dados</h2><p>Para esclarecer o tratamento de dados associado ao seu pedido ou solicitar o exercício dos seus direitos, contacte <a className="text-primary underline" href={'mailto:' + email}>{email}</a>.</p></section>
+  </div></main>;
+}
